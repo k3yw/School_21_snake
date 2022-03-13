@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
-
+#include <ncurses.h>
 #include <sys/time.h>
 
 #define TILE_SIZE_X 3
@@ -86,13 +86,13 @@ void set_big_buff() {
     }
 }
 int main() {
-    texture texture_first = {
+    /* texture texture_first = {
         .buffer = {
             {PIXEL_HALFB, PIXEL_BLOCK, PIXEL_HALFB},
             {PIXEL_BLOCK,PIXEL_BLOCK,PIXEL_BLOCK},
             {PIXEL_HALFT, PIXEL_BLOCK, PIXEL_HALFT},
         }
-    };
+    }; */
 
     texture texture_second = {
         .buffer = {
@@ -109,13 +109,14 @@ int main() {
             {SPACE, SPACE, SPACE},
         }
     };
-    texture blank = {
+    
+    /* texture blank = {
         .buffer = {
             {"1", "2", "3"},
             {"4", "5", "6"},
             {"7", "8", "9"}
         }
-    };
+    }; */
 
     texture_map[0] = &texture_space;
     texture_map[1] = &texture_second;
