@@ -1,0 +1,9 @@
+#include "./$_class_namelowercase.h"
+
+/*
+void func_test(P$class_name instance) {
+    PTextureMap test = $__class_nameuppercase();
+} 
+*/
+
+/* код */

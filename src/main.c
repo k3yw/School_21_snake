@@ -1,18 +1,8 @@
 #include <stdio.h>
 #include <time.h>
-#include <ncurses.h>
 #include <sys/time.h>
 
-#define TILE_SIZE_X 3
-#define TILE_SIZE_Y 3
-#define TILE_WIDTH 60
-#define TILE_HEIGHT 21
-
-
-#define PIXEL_BLOCK "█"
-#define PIXEL_HALFB "▄"
-#define PIXEL_HALFT "▀"
-#define SPACE "░"
+#include "./game_defaults.h"
 
 typedef struct texture_map {
     char * buffer[TILE_SIZE_X][TILE_SIZE_Y];

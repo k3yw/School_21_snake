@@ -1,0 +1,40 @@
+// Copyright 2022 atlaskef
+/**
+ * @file $_class_namelowercase.h
+ * @author atlaskef
+ * @brief class-alike ООП декларация структур
+ * @version 0.1
+ * @date 2022-03-14
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+#ifndef SRC_$__class_nameuppercase_H_
+#define SRC_$__class_nameuppercase_H_
+
+struct $class_name;
+typedef struct $class_name* P$class_name; 
+
+
+/////////////////////////////////////////////////////////////////////
+/**
+ * !!! Объявлять функции тута !!!
+ */
+
+// ...
+/*void func_test(P$class_name instance);*/
+/////////////////////////////////////////////////////////////////////
+
+#include "$_class_namelowercase.class.h"
+
+/////////////////////////////////////////////////////////////////////
+/**
+ * @brief Декларация класса $class_name
+ */
+typedef struct $class_name {
+    __$_class_namelowercase_vtable__ * call;
+    /// !!!! Объявлять переменные тута !!!!
+} $class_name;
+/////////////////////////////////////////////////////////////////////
+
+#endif  // SRC_$__class_nameuppercase_H_

@@ -1,0 +1,52 @@
+// Copyright 2022 atlaskef
+/**
+ * @file $_class_namelowercase.h
+ * @author atlaskef
+ * @brief class-alike ООП декларация структур
+ * @version 0.1
+ * @date 2022-03-14
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+#ifndef SRC_$__class_nameuppercase_CLASS_H_
+#define SRC_$__class_nameuppercase_CLASS_H_
+
+#include "./$_class_namelowercase.h"
+
+/////////////////////////////////////////////////////////////////////
+/**
+ * Декларация Virtual Table класса $class_name
+ */
+typedef struct {
+    /*void (*func_test)(P$class_name);*/
+    /// !!! Декларация функций... !!!
+} __$_class_namelowercase_vtable__;
+
+extern __$_class_namelowercase_vtable__ __$_class_namelowercase_vtable___defaults__;
+/////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////
+/**
+ * Декларация макроса для базовой инициализации $class_name
+ */
+#define $__class_nameuppercase(...) {\
+.call = &__$_class_namelowercase_vtable___defaults__,\
+__VA_ARGS__}
+/////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////
+/**
+ * @brief Инициализация VTable класса $class_name
+ */
+__$_class_namelowercase_vtable__
+    __$_class_namelowercase_vtable___defaults__ = {
+    /*.func_test = func_test,*/
+    // !!! Инициализация функций... !!!
+};
+/////////////////////////////////////////////////////////////////////
+
+
+#endif  // $__class_nameuppercase_CLASS_H_
