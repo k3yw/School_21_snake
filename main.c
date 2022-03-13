@@ -31,13 +31,13 @@ void one_to_nine_character(int index, int x, int y) {
         for (int j = -1; j < 2; j++)
         {
             /* pixel_buffer[x + i][y + j] = (*texture_map[index])[i + 1][j + 1]; */
-            pixel_buffer[x + i][y + j] = texture_map[index]->buffer[i + 1][j + 1];
+            pixel_buffer[x + i][y + j] = texture_map[index]->buffer[j + 1][i + 1];
         }
     }
 }
 
 void draw_final_console() {
-    for (int i = 0; i < TILE_WIDTH * TILE_SIZE_X; i++) {
+    /* for (int i = 0; i < TILE_WIDTH * TILE_SIZE_X; i++) {
         for (int j = 0; j < TILE_HEIGHT * TILE_SIZE_Y; j++) {
             if (pixel_buffer[i][j] == NULL) {
                 printf("_");
@@ -46,17 +46,42 @@ void draw_final_console() {
             printf("%s", (pixel_buffer[i][j]));
         }
         printf("\n");
+    } */
+
+    for (int y = 0; y < TILE_HEIGHT * TILE_SIZE_Y; y++)
+    {
+        for (int x = 0; x < TILE_WIDTH * TILE_SIZE_X; x++)
+        {
+            if (pixel_buffer[x][y] == NULL) {
+                printf("_");
+                continue;
+            }
+            printf("%s", (pixel_buffer[x][y]));
+        }
+        printf("\n");
     }
+    
 }
 
 void set_big_buff() {
-    for (int i = 0; i < (TILE_WIDTH); i++) {
-        for (int j = 0; j < TILE_HEIGHT; j++) {
+    for (int x = 0; x < (TILE_WIDTH); x++) {
+        for (int y = 0; y < TILE_HEIGHT; y++) {
             /* if (i == 0) one_to_nine_character(1, i, j);
             else {
                 one_to_nine_character(0, i, j);
             } */
-            one_to_nine_character(i % 2 , i, j);
+            /* one_to_nine_character(i % 2 , i, j); */
+            int is_wall = 0;
+            if (y == 0 || y == TILE_HEIGHT - 1) {
+                is_wall = 1;
+            } else if (x == 0 || x == TILE_WIDTH - 1) {
+                is_wall = 1;
+            }
+
+            one_to_nine_character(is_wall , x, y);
+            /* if (i == 0 || i == TILE_WIDTH - 1) {
+                
+            } */
         }
     }
 }
@@ -84,9 +109,16 @@ int main() {
             {SPACE, SPACE, SPACE},
         }
     };
+    texture blank = {
+        .buffer = {
+            {"1", "2", "3"},
+            {"4", "5", "6"},
+            {"7", "8", "9"}
+        }
+    };
 
-    texture_map[0] = &texture_first;
-    texture_map[1] = &texture_space;
+    texture_map[0] = &texture_space;
+    texture_map[1] = &texture_second;
 
     set_big_buff();
     draw_final_console();
