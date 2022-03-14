@@ -16,4 +16,7 @@
 #define PIXEL_HALFT "▀"
 #define SPACE "░"
 
+
+#define MAX_TEXTURES 10
+
 #endif  // SRC_GAME_DEFAULTS_H_

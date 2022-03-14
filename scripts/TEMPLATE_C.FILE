@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "./$_class_namelowercase.h"
 
 
@@ -11,6 +12,12 @@ __$_class_namelowercase_vtable__
     // !!! Инициализация функций... !!!
 };
 /////////////////////////////////////////////////////////////////////
+
+P$class_name $class_name__new() {
+    P$class_name ret = (P$class_name)malloc(sizeof($class_name));
+    ret->call = &__$_class_namelowercase_vtable___defaults__;
+    return ret;
+}
 
 /*
 void $class_name__func_test(P$class_name instance) {

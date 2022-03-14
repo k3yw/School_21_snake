@@ -36,6 +36,8 @@ extern __texturemap_vtable__ __texturemap_vtable___defaults__;
 #define TEXTUREMAP(...) {\
 .call = &__texturemap_vtable___defaults__,\
 __VA_ARGS__}
+
+#define NEW_TEXTUREMAP() TextureMap__new()
 /////////////////////////////////////////////////////////////////////
 
 

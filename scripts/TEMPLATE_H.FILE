@@ -22,6 +22,7 @@ typedef struct $class_name* P$class_name;
  */
 
 // ...
+P$class_name $class_name__new();
 /*void $class_name__func_test(P$class_name instance);*/
 /////////////////////////////////////////////////////////////////////
 

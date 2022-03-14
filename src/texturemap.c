@@ -2,10 +2,8 @@
 #include <curses.h>
 
 #include "./game_defaults.h"
-#include "./render.h"
+#include "./renderengine.h"
 #include "./texturemap.h"
-#include "./testclass.h"
-
 
 /////////////////////////////////////////////////////////////////////
 /**
@@ -19,6 +17,12 @@ __texturemap_vtable__
     // !!! Инициализация функций... !!!
 };
 /////////////////////////////////////////////////////////////////////
+
+PTextureMap TextureMap__new() {
+    PTextureMap ret = (PTextureMap)malloc(sizeof(TextureMap));
+    ret->call = &__texturemap_vtable___defaults__;
+    return ret;
+}
 
 char* pixel_buffer[TILE_WIDTH * TILE_SIZE_X][TILE_HEIGHT * TILE_SIZE_Y];
 
@@ -42,15 +46,10 @@ void TextureMap__Render(PTextureMap instance, int x, int y) {
 
 
 int main() {
-    /* printf("start\n"); */
-    initscr();
-    resize_term(SCREEN_WIDTH, SCREEN_HEIGHT);
-    cbreak();
-    noecho();
-    /* printf("start\n"); */
-    /* raw(); */
+    RenderEngine render = RENDERENGINE();
+    render.call->Init(&render);
 
-
+    PRenderEngine test_en = NEW_RENDERENGINE();
 
     TextureMap test = TEXTUREMAP(
         .test = 4,
@@ -59,13 +58,8 @@ int main() {
 
     test.call->Render(&test, 0, 0);
 
-    TestClass test2 = TESTCLASS();
-
-    test2.call->Render(&test2);
 
 
-    getch();
-    endwin();
-    /* test.call->Test_Function(&test); */
+    render.call->Destroy(&render);
     return 0;
 }

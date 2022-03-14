@@ -34,6 +34,8 @@ extern __$_class_namelowercase_vtable__ __$_class_namelowercase_vtable___default
 #define $__class_nameuppercase(...) {\
 .call = &__$_class_namelowercase_vtable___defaults__,\
 __VA_ARGS__}
+
+#define NEW_$__class_nameuppercase() $class_name__new()
 /////////////////////////////////////////////////////////////////////
 
 

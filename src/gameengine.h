@@ -1,6 +1,6 @@
 // Copyright 2022 atlaskef
 /**
- * @file testclass.h
+ * @file gameengine.h
  * @author atlaskef
  * @brief class-alike ООП декларация структур
  * @version 0.1
@@ -9,11 +9,11 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef SRC_TESTCLASS_H_
-#define SRC_TESTCLASS_H_
+#ifndef SRC_GAMEENGINE_H_
+#define SRC_GAMEENGINE_H_
 
-struct TestClass;
-typedef struct TestClass* PTestClass; 
+struct GameEngine;
+typedef struct GameEngine* PGameEngine; 
 
 
 /////////////////////////////////////////////////////////////////////
@@ -22,20 +22,20 @@ typedef struct TestClass* PTestClass;
  */
 
 // ...
-/*void func_test(PTestClass instance);*/
-void TestClass__Render(PTestClass instance);
+PGameEngine GameEngine__new();
+/*void GameEngine__func_test(PGameEngine instance);*/
 /////////////////////////////////////////////////////////////////////
 
-#include "testclass.class.h"
+#include "gameengine.class.h"
 
 /////////////////////////////////////////////////////////////////////
 /**
- * @brief Декларация класса TestClass
+ * @brief Декларация класса GameEngine
  */
-typedef struct TestClass {
-    __testclass_vtable__ * call;
+typedef struct GameEngine {
+    __gameengine_vtable__ * call;
     /// !!!! Объявлять переменные тута !!!!
-} TestClass;
+} GameEngine;
 /////////////////////////////////////////////////////////////////////
 
-#endif  // SRC_TESTCLASS_H_
+#endif  // SRC_GAMEENGINE_H_

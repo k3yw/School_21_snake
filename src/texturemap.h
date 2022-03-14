@@ -20,7 +20,7 @@ typedef struct TextureMap* PTextureMap;
 /**
  * !!! Объявлять функции тута !!!
  */
-
+PTextureMap TextureMap__new();
 // ...
 /* void func_test(PTextureMap instance); */
 void TextureMap__Test_Function(PTextureMap instance);
