@@ -47,7 +47,7 @@ int RenderEngine__Destroy(PRenderEngine instance) {
 
 
 int RenderEngine__AppendTexture(PRenderEngine instance, 
-    RawTexture texture) {
+    PRawTexture texture) {
     return 1;
 }
 

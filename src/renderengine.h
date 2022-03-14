@@ -19,6 +19,7 @@
 struct RenderEngine;
 typedef struct RenderEngine* PRenderEngine; 
 typedef char* RawTexture[TILE_SIZE_X][TILE_SIZE_Y];
+typedef RawTexture* PRawTexture;
 
 /////////////////////////////////////////////////////////////////////
 /**
@@ -32,7 +33,7 @@ int RenderEngine__Init(PRenderEngine instance);
 int RenderEngine__Destroy(PRenderEngine instance);
 
 int RenderEngine__AppendTexture(PRenderEngine instance, 
-    RawTexture texture);
+    PRawTexture texture);
 int RenderEngine__InitTextures(PRenderEngine instance);
 int RenderEngine__DestroyTextures(PRenderEngine instance);
 

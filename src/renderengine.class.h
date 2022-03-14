@@ -28,7 +28,7 @@ typedef struct {
 
     int (*InitTextures)(PRenderEngine);
     int (*DestroyTextures)(PRenderEngine);
-    int (*AppendTexture)(PRenderEngine, RawTexture);
+    int (*AppendTexture)(PRenderEngine, PRawTexture);
 
     int (*InitWindow)();
     int (*DestroyWindow)(PRenderEngine);

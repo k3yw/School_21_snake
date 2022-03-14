@@ -32,6 +32,35 @@
             ],
             "preLaunchTask": "C/C++: gcc-7 build active file",
             "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "gcc-7 - Test file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [
+                
+            ],
+            "customLaunchSetupCommands": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc-7 test file",
+            "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
 }
