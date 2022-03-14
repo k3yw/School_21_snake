@@ -8,6 +8,7 @@
  */
 __gameobject_vtable__
     __gameobject_vtable___defaults__ = {
+    .OnCollide = NULL
     /*.func_test = GameObject__func_test,*/
     // !!! Инициализация функций... !!!
 };

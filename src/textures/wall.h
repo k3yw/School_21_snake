@@ -11,7 +11,7 @@
 #define C_BLOCK1 "╝"
 
 #define WALL_TEXTURE_ {\
-        {Q_BLOCK1, W_BLOCK1, E_BLOCK1},\
+{Q_BLOCK1, W_BLOCK1, E_BLOCK1},\
         {A_BLOCK1, S_BLOCK1, A_BLOCK1},\
         {Z_BLOCK1, W_BLOCK1, C_BLOCK1},\
 }

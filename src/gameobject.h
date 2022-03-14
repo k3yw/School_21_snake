@@ -12,8 +12,10 @@
 #ifndef SRC_GAMEOBJECT_H_
 #define SRC_GAMEOBJECT_H_
 
+#include "./texturemap.h"
 struct GameObject;
 typedef struct GameObject* PGameObject; 
+typedef int (*CollisionFunc)(PGameObject);
 
 
 /////////////////////////////////////////////////////////////////////
@@ -34,6 +36,12 @@ PGameObject GameObject__new();
  */
 typedef struct GameObject {
     __gameobject_vtable__ * call;
+    PTextureMap texture;
+    int has_collision;
+    int x;
+    int y;
+    CollisionFunc on_collide;
+    PGameObject child_object;
     /// !!!! Объявлять переменные тута !!!!
 } GameObject;
 /////////////////////////////////////////////////////////////////////

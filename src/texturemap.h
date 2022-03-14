@@ -14,13 +14,13 @@
 
 struct TextureMap;
 typedef struct TextureMap* PTextureMap; 
-
+#include "renderengine.h"
 
 /////////////////////////////////////////////////////////////////////
 /**
  * !!! Объявлять функции тута !!!
  */
-PTextureMap TextureMap__new();
+PTextureMap TextureMap__new(RawTexture texture);
 // ...
 /* void func_test(PTextureMap instance); */
 void TextureMap__Test_Function(PTextureMap instance);
@@ -37,7 +37,7 @@ typedef struct TextureMap {
     __texturemap_vtable__ * call;
     /// !!!! Объявлять переменные тута !!!!
     int test;
-    char * buffer[TILE_SIZE_X][TILE_SIZE_Y];
+    PRawTexture buffer;
 } TextureMap;
 /////////////////////////////////////////////////////////////////////
 

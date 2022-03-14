@@ -12,6 +12,7 @@
 #ifndef SRC_TEXTUREASSETS_H_
 #define SRC_TEXTUREASSETS_H_
 #include "./renderengine.h"
+#include "./darray.h"
 
 struct TextureAssets;
 typedef struct TextureAssets* PTextureAssets; 
@@ -36,6 +37,7 @@ void TextureAssets__Init(PTextureAssets instance, PRenderEngine render);
  */
 typedef struct TextureAssets {
     __textureassets_vtable__ * call;
+    PDArray bank;
     /// !!!! Объявлять переменные тута !!!!
 } TextureAssets;
 /////////////////////////////////////////////////////////////////////

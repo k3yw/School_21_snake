@@ -2,6 +2,7 @@
 #include "./textureassets.h"
 #include "./renderengine.h"
 #include "./texturemap.h"
+#include "./textures/wall.h"
 
 /////////////////////////////////////////////////////////////////////
 /**
@@ -29,11 +30,12 @@ void TextureAssets__func_test(PTextureAssets instance) {
 */
 
 void TextureAssets__Init(PTextureAssets instance, PRenderEngine render) {
-    /**
-     * @brief Тестовая текстура
-     */
-
-    /* render->call->AppendTexture(render, ) */
+    RawTexture tt = {
+        {Q_BLOCK1, W_BLOCK1, E_BLOCK1},
+        {A_BLOCK1, S_BLOCK1, A_BLOCK1},
+        {Z_BLOCK1, W_BLOCK1, C_BLOCK1},
+    };
+    instance->bank->call->add(instance->bank, (void *)NEW_TEXTUREMAP(tt));
 }
 
 /* код */

@@ -33,11 +33,11 @@ extern __texturemap_vtable__ __texturemap_vtable___defaults__;
 /**
  * Декларация макроса для базовой инициализации TextureMap
  */
-#define TEXTUREMAP(...) {\
+/* #define TEXTUREMAP(...) {\
 .call = &__texturemap_vtable___defaults__,\
-__VA_ARGS__}
+__VA_ARGS__} */
 
-#define NEW_TEXTUREMAP() TextureMap__new()
+#define NEW_TEXTUREMAP(texture) TextureMap__new(texture)
 /////////////////////////////////////////////////////////////////////
 
 

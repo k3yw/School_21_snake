@@ -13,13 +13,14 @@
 #define SRC_RENDERENGINE_H_
 
 #include "game_defaults.h"
-#include "texturemap.h"
 #include "gameengine.h"
 
 struct RenderEngine;
 typedef struct RenderEngine* PRenderEngine; 
 typedef char* RawTexture[TILE_SIZE_X][TILE_SIZE_Y];
 typedef RawTexture* PRawTexture;
+
+#include "texturemap.h"
 
 /////////////////////////////////////////////////////////////////////
 /**
