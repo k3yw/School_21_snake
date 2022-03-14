@@ -13,6 +13,8 @@
 #define SRC_GAMEASSETS_H_
 #include "game_defaults.h"
 #include "gameobject.h"
+
+#include "darray.h"
 struct GameAssets;
 typedef struct GameAssets* PGameAssets; 
 
@@ -36,6 +38,7 @@ PGameAssets GameAssets__new();
 typedef struct GameAssets {
     __gameassets_vtable__ * call;
     PGameObject objects[TILE_WIDTH][TILE_HEIGHT];
+    PDArray bank;
     /// !!!! Объявлять переменные тута !!!!
 } GameAssets;
 /////////////////////////////////////////////////////////////////////

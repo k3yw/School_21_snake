@@ -20,6 +20,7 @@
  */
 typedef struct {
     /*void (*func_test)(PGameObject);*/
+    void (*OnCollide)(PGameObject);
     /// !!! Декларация функций... !!!
 } __gameobject_vtable__;
 

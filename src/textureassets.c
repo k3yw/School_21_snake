@@ -35,7 +35,7 @@ void TextureAssets__Init(PTextureAssets instance, PRenderEngine render) {
         {A_BLOCK1, S_BLOCK1, A_BLOCK1},
         {Z_BLOCK1, W_BLOCK1, C_BLOCK1},
     };
-    instance->bank->call->add(instance->bank, (void *)NEW_TEXTUREMAP(tt));
+    instance->bank->call->add(instance->bank, (void *)NEW_TEXTUREMAP(&tt));
 }
 
 /* код */

@@ -1,7 +1,7 @@
 GCC_IGNORE_ERRS=-Wno-override-init -Wno-unused-parameter
 BUILD_FOLDER=../build/
 SRC_FOLDER=./src/
-OBJECTS=gameengine.c renderengine.c texturemap.c textureassets.c darray.c darraycell.c
+OBJECTS=gameengine.c renderengine.c texturemap.c textureassets.c darray.c darraycell.c gameassets.c gameobject.c
 all: build
 
 build: main.c
