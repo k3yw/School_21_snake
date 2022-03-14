@@ -8,7 +8,7 @@ build: main.c
 	make clear;gcc -Wall -Wextra -Werror -lncurses main.c -o $(BUILD_FOLDER)main.out;
 
 clear:
-	cd $(BUILD_FOLDER);rm -rf *;
+	rm -rf $(BUILD_FOLDER)*;
 
 run: main.c
 	make clear;gcc -Wall -Wextra -Werror -lncurses main.c -o $(BUILD_FOLDER)main.out;$(BUILD_FOLDER)main.out
