@@ -37,16 +37,4 @@ __VA_ARGS__}
 /////////////////////////////////////////////////////////////////////
 
 
-/////////////////////////////////////////////////////////////////////
-/**
- * @brief Инициализация VTable класса $class_name
- */
-__$_class_namelowercase_vtable__
-    __$_class_namelowercase_vtable___defaults__ = {
-    /*.func_test = func_test,*/
-    // !!! Инициализация функций... !!!
-};
-/////////////////////////////////////////////////////////////////////
-
-
-#endif  // $__class_nameuppercase_CLASS_H_
+#endif  // SRC_$__class_nameuppercase_CLASS_H_

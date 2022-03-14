@@ -22,7 +22,7 @@ typedef struct $class_name* P$class_name;
  */
 
 // ...
-/*void func_test(P$class_name instance);*/
+/*void $class_name__func_test(P$class_name instance);*/
 /////////////////////////////////////////////////////////////////////
 
 #include "$_class_namelowercase.class.h"

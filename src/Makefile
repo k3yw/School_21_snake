@@ -10,4 +10,7 @@ run: main.c
 	gcc -Wall -Wextra -Werror -lncurses main.c -o $(BUILD_FOLDER)main.out;$(BUILD_FOLDER)main.out
 
 test_texture:
-	gcc -Wall -Wextra -Werror -o $(BUILD_FOLDER)texturemap.out texturemap.c -lncurses;$(BUILD_FOLDER)texturemap.out
+	gcc -Wall -Wextra -Werror -o $(BUILD_FOLDER)texturemap.out texturemap.c testclass.c -lncurses;$(BUILD_FOLDER)texturemap.out
+
+test_texture2:
+	gcc -Wall -Wextra -Werror -o $(BUILD_FOLDER)texturemap.out texturemap.c testclass.c -lncurses;
