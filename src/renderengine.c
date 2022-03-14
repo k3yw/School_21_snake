@@ -1,5 +1,8 @@
+#include <stdio.h>
 #include <ncurses.h>
 #include <stdlib.h>
+#include <locale.h>
+
 #include "game_defaults.h"
 #include "texturemap.h"
 #include "./renderengine.h"
@@ -67,10 +70,11 @@ int RenderEngine__DestroyTextures(PRenderEngine instance) {
 }
 
 int RenderEngine__InitWindow() {
+    setlocale(LC_ALL, "");
     initscr();
-    resize_term(SCREEN_WIDTH, SCREEN_HEIGHT);
+    resize_term(SCREEN_HEIGHT, SCREEN_WIDTH);
     cbreak();
-    noecho();
+    /* noecho(); */
     return 1;
 }
 

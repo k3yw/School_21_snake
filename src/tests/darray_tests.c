@@ -39,9 +39,7 @@ int main() {
         printf("%d, data: %ld\n", d->data[i]->id, (long)d->data[i]->data);
     }
     
-
     test("ID of last cell is 15", d->data[DARRAY_PAGE_LIMIT - 1]->id, 15, 1);
-    
     test("Size is 16", d->size, 16, 1);
 
     PDArrayCell last = d->next_page->data[0];
@@ -63,5 +61,6 @@ int main() {
     test("Get call returns cell with id of 5", get_result->id, 5, 1);
     test("Get call returns NULL cell for index > size (16)", (long)d->call->get(d, 16), TNULL, 1);
     test("Get call returns NULL cell for index > size (5) (next_page)", (long)d->call->get(d->next_page, 15), TNULL, 1);
+    test("Get call returns cell with id of 0 (next_page)", d->call->get(d->next_page, 0)->id, 0, 1);
     return 0;
 }

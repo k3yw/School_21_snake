@@ -38,10 +38,12 @@ PDArrayCell DArray__add(PDArray instance, void * data) {
         cell = is_page_limit ? NULL : instance->data[instance->size];
 
         if (is_page_limit) {
+            // костылииииииииииии дедлаааааайныыыыыы
             instance->last_page = NEW_DARRAY();
             instance->next_page = instance->last_page;
             cell = instance->last_page->last_element;
             instance->last_element->next_page = instance->last_page;
+            instance->next_page->size += 1;
         } else {
             instance->last_element = cell;
         }
