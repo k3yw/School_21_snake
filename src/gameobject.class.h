@@ -21,6 +21,7 @@
 typedef struct {
     /*void (*func_test)(PGameObject);*/
     void (*OnCollide)(PGameObject);
+    int (*Render)(PGameObject, int, int);
     /// !!! Декларация функций... !!!
 } __gameobject_vtable__;
 

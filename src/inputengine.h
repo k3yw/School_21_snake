@@ -1,6 +1,6 @@
 // Copyright 2022 atlaskef
 /**
- * @file gameengine.h
+ * @file inputengine.h
  * @author atlaskef
  * @brief class-alike ООП декларация структур
  * @version 0.1
@@ -9,12 +9,11 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef SRC_GAMEENGINE_H_
-#define SRC_GAMEENGINE_H_
-/* #include "renderengine.h"
-#include "gameassets.h" */
-struct GameEngine;
-typedef struct GameEngine* PGameEngine; 
+#ifndef SRC_INPUTENGINE_H_
+#define SRC_INPUTENGINE_H_
+
+struct InputEngine;
+typedef struct InputEngine* PInputEngine; 
 
 
 /////////////////////////////////////////////////////////////////////
@@ -23,23 +22,21 @@ typedef struct GameEngine* PGameEngine;
  */
 
 // ...
-PGameEngine GameEngine__new();
-void GameEngine__Init(PGameEngine instance);
-/*void GameEngine__func_test(PGameEngine instance);*/
+PInputEngine InputEngine__new();
+/*void InputEngine__func_test(PInputEngine instance);*/
 /////////////////////////////////////////////////////////////////////
 
-#include "gameengine.class.h"
+#include "inputengine.class.h"
 
 /////////////////////////////////////////////////////////////////////
 /**
- * @brief Декларация класса GameEngine
+ * @brief Декларация класса InputEngine
  */
-typedef struct GameEngine {
-    __gameengine_vtable__ * call;
-    /* PRenderEngine render;
-    PGameAssets assets; */
+typedef struct InputEngine {
+    __inputengine_vtable__ * call;
+    
     /// !!!! Объявлять переменные тута !!!!
-} GameEngine;
+} InputEngine;
 /////////////////////////////////////////////////////////////////////
 
-#endif  // SRC_GAMEENGINE_H_
+#endif  // SRC_INPUTENGINE_H_

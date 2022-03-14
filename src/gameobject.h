@@ -25,6 +25,7 @@ typedef int (*CollisionFunc)(PGameObject);
 
 // ...
 PGameObject GameObject__new();
+int GameObject__Render(PGameObject instance, int x, int y);
 /*void GameObject__func_test(PGameObject instance);*/
 /////////////////////////////////////////////////////////////////////
 
@@ -40,6 +41,8 @@ typedef struct GameObject {
     int has_collision;
     int x;
     int y;
+    int x_vel;
+    int y_vel;
     CollisionFunc on_collide;
     PGameObject child_object;
     /// !!!! Объявлять переменные тута !!!!

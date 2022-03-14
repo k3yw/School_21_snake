@@ -1,6 +1,6 @@
 // Copyright 2022 atlaskef
 /**
- * @file gameengine.h
+ * @file inputengine.h
  * @author atlaskef
  * @brief class-alike ООП декларация структур
  * @version 0.1
@@ -9,35 +9,34 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef SRC_GAMEENGINE_CLASS_H_
-#define SRC_GAMEENGINE_CLASS_H_
+#ifndef SRC_INPUTENGINE_CLASS_H_
+#define SRC_INPUTENGINE_CLASS_H_
 
-#include "./gameengine.h"
+#include "./inputengine.h"
 
 /////////////////////////////////////////////////////////////////////
 /**
- * Декларация Virtual Table класса GameEngine
+ * Декларация Virtual Table класса InputEngine
  */
 typedef struct {
-    /*void (*func_test)(PGameEngine);*/
+    /*void (*func_test)(PInputEngine);*/
     /// !!! Декларация функций... !!!
-    void (*Init)(PGameEngine);
-} __gameengine_vtable__;
+} __inputengine_vtable__;
 
-extern __gameengine_vtable__ __gameengine_vtable___defaults__;
+extern __inputengine_vtable__ __inputengine_vtable___defaults__;
 /////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////
 /**
- * Декларация макроса для базовой инициализации GameEngine
+ * Декларация макроса для базовой инициализации InputEngine
  */
-#define GAMEENGINE(...) {\
-.call = &__gameengine_vtable___defaults__,\
+#define INPUTENGINE(...) {\
+.call = &__inputengine_vtable___defaults__,\
 __VA_ARGS__}
 
-#define NEW_GAMEENGINE() GameEngine__new()
+#define NEW_INPUTENGINE() InputEngine__new()
 /////////////////////////////////////////////////////////////////////
 
 
-#endif  // SRC_GAMEENGINE_CLASS_H_
+#endif  // SRC_INPUTENGINE_CLASS_H_

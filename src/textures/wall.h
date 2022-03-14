@@ -79,6 +79,9 @@
 #define A_BLOCK_GL "˃"
 #define S_BLOCK_GL " "
 
+#define A_BL_LOG "█"
+#define Q_BL_LOG " "
+
 
 #define WALL_TEXTURE_ {\
 {Q_BLOCK1, W_BLOCK1, E_BLOCK1},\
@@ -106,7 +109,7 @@
 
 #define HVOST_LEFT {\
 {W_BLOCK_LF, W_BLOCK_LF, Q_BLOCK_LF},\
-        {S_BLOCK_LF_UP, S_BLOCK_LF, A_BLOCK_LF},\
+        {S_BLOCK_LF, S_BLOCK_LF, A_BLOCK_LF},\
         {W_BLOCK_LF, W_BLOCK_LF, E_BLOCK_LF},\
 }
 
@@ -152,5 +155,66 @@
         {A_BLOCK_GOLOVA, S_BLOCK_GOLOVA, A_BLOCK_GOLOVA},\
         {A_BLOCK_GOLOVA, S_BLOCK_GOLOVA, A_BLOCK_GOLOVA},\
 }
+
+#define L_21_ID_11 {\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, A_BL_LOG, A_BL_LOG},\
+}
+
+#define L_21_ID_21 {\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {A_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+}
+
+#define L_21_ID_31 {\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {A_BL_LOG Q_BL_LOG, Q_BL_LOG},\
+}
+
+#define L_21_ID_12 {\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, A_BL_LOG},\
+        {Q_BL_LOG, A_BL_LOG, Q_BL_LOG},\
+}
+
+#define L_21_ID_22 {\
+        {Q_BL_LOG, A_BL_LOG, Q_BL_LOG},\
+        {A_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+}
+
+#define L_21_ID_32 {\
+        {Q_BL_LOG, A_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, A_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, A_BL_LOG, Q_BL_LOG},\
+}
+
+#define L_21_ID_13 {\
+        {Q_BL_LOG, Q_BL_LOG, A_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+}
+
+#define L_21_ID_23 {\
+        {A_BL_LOG, A_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+}
+
+#define L_21_ID_33 {\
+        {Q_BL_LOG, A_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+        {Q_BL_LOG, Q_BL_LOG, Q_BL_LOG},\
+}
+
+#define L_21_FULL {\
+        {L_21_ID_11, L_21_ID_21, L_21_ID_31},\
+        {L_21_ID_12, L_21_ID_22, L_21_ID_32},\
+        {L_21_ID_13, L_21_ID_23, L_21_ID_33}\
+}
+
 
 #endif  // SRC_TEXTURES_WALL_H_

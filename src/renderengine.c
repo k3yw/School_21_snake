@@ -2,11 +2,13 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <unistd.h>
 
 #include "game_defaults.h"
 #include "texturemap.h"
 #include "./renderengine.h"
 #include "./gameengine.h"
+#include "gameobject.h"
 
 
 /////////////////////////////////////////////////////////////////////
@@ -24,10 +26,33 @@ __renderengine_vtable__
     .AppendTexture = RenderEngine__AppendTexture,
 
     .InitWindow = RenderEngine__InitWindow,
-    .DestroyWindow = RenderEngine__DestroyWindow
+    .DestroyWindow = RenderEngine__DestroyWindow,
+    /* .Loop = RenderEngine__Loop */
     // !!! Инициализация функций... !!!
 };
 /////////////////////////////////////////////////////////////////////
+
+/* void RenderEngine__Loop(PRenderEngine instance, PGameEngine game_engine) {
+    for (size_t i = 0; i < 30; i++)
+    {
+        for (int x = 0; x < TILE_WIDTH; x++)
+        {
+            for (int y = 0; y < TILE_HEIGHT; y++)
+            {
+                PGameObject object = tt_o->objects[x][y];
+
+                if (object == NULL) {
+                    RenderVoid(x, y);
+                    continue;
+                }
+
+                object->call->Render(object, x, y);
+            }
+        }
+        refresh();
+        usleep(500000);
+    }
+} */
 
 PRenderEngine RenderEngine__new() {
     PRenderEngine ret = (PRenderEngine)malloc(sizeof(RenderEngine));

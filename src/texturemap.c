@@ -9,7 +9,7 @@
 #include "./textures/wall.h"
 #include "./texturemap.h"
 #include "./gameassets.h"
-
+void RenderVoid(int x, int y);
 /////////////////////////////////////////////////////////////////////
 /**
  * @brief Инициализация VTable класса TextureMap
@@ -29,8 +29,6 @@ PTextureMap TextureMap__new(PRawTexture texture) {
     ret->test = 0;
     ret->buffer = malloc(sizeof(RawTexture));
     memcpy(ret->buffer, texture, sizeof(RawTexture));
-    /* *(char*)(&ret->buffer[0][0]) = texture[0][0][0]; */
-    /* (*ret->buffer)[0][0] = texture[0][0]; */
     return ret;
 }
 
@@ -40,13 +38,7 @@ void TextureMap__Test_Function(PTextureMap instance) {
     printf("test %d\n", instance->test);
 }
 
-void TextureMap__Render(PTextureMap instance, int x, int y) {
-    /* printf("                   \n");
-    printf("                   \n");
-    printf("                   \n"); */
-    if (instance == NULL || instance->buffer == NULL) {
-        return;
-    }
+void RenderVoid(int x, int y) {
     x = x * 3;
     y = y * 3;
     for (int i = 0; i < 3; i++)
@@ -54,7 +46,31 @@ void TextureMap__Render(PTextureMap instance, int x, int y) {
         for (int j = 0; j < 3; j++)
         {
             move(y + j, x + i);
-            printw("%s", (*instance->buffer)[j][i]);
+            printw(" ");
+        }
+    }
+}
+
+void TextureMap__Render(PTextureMap instance, int x, int y) {
+    /* printf("                   \n");
+    printf("                   \n");
+    printf("                   \n"); */
+    /* if (instance == NULL || instance->buffer == NULL) {
+        return;
+    } */
+    x = x * 3;
+    y = y * 3;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            move(y + j, x + i);
+            if (instance == NULL || instance->buffer == NULL) {
+                printw(" ");
+            } else {
+                printw("%s", (*instance->buffer)[j][i]);
+            }
+            
         }
     }
     
@@ -88,42 +104,69 @@ int main() {
     test.call->Render(&test, 1, 0);
     test.call->Render(&test, 2, 0); */
 
-    for (size_t i = 0; i < 10; i++)
+    for (int x = 0; x < TILE_WIDTH; x++)
+        {
+            for (int y = 0; y < TILE_HEIGHT; y++)
+            {
+                PGameObject object = tt_o->objects[x][y];
+                int new_x = object->x + object->x_vel;
+                int new_y = object->y + object->y_vel;
+                PGameObject tmp = tt_o->objects[new_x][new_y];
+                if (tmp != NULL && tmp->has_collision) {
+                    tmp->call->OnCollide(tmp, object);
+                }
+
+                if (object == NULL) {
+                    RenderVoid(x, y);
+                    continue;
+                }
+/*                 if (object == NULL) {
+                    RenderVoid(x, y);
+                    continue;
+                }
+                
+                PTextureMap texture = object->texture;
+                if (texture == NULL || texture->call == NULL ) {
+                    RenderVoid(x, y);
+                    continue;
+                } */
+
+                object->call->Render(object, x, y);
+
+/*                 texture->call->Render(texture, x, y); */
+            }
+        }
+
+    for (size_t i = 0; i < 30; i++)
     {
-        clear();
-        /* system("printf '\e[8;35;80t'"); */
-        test->call->Render(test, i + 2, 5);
         for (int x = 0; x < TILE_WIDTH; x++)
         {
             for (int y = 0; y < TILE_HEIGHT; y++)
             {
-                /* if ((y == 0 || y == TILE_HEIGHT - 1) || (x == 0 || x == TILE_WIDTH - 1)) {
-                    test->call->Render(test, x, y);
-                } */
                 PGameObject object = tt_o->objects[x][y];
                 if (object == NULL) {
+                    RenderVoid(x, y);
                     continue;
                 }
-                /* printw("%ld\n", object); */
+/*                 if (object == NULL) {
+                    RenderVoid(x, y);
+                    continue;
+                }
+                
                 PTextureMap texture = object->texture;
-                if (texture == NULL /* || texture->call == NULL  */) {
-                    continue;
-                }
-
-                /* texture->call->Render(texture, x, y); */
-                /* if (object == NULL) {
-                    continue;
-                }
-
-                PTextureMap texture = object->texture;
-                if (texture == NULL) {
+                if (texture == NULL || texture->call == NULL ) {
+                    RenderVoid(x, y);
                     continue;
                 } */
-                /* texture->call->Render(texture, x, y); */
+
+                object->call->Render(object, x, y);
+
+/*                 texture->call->Render(texture, x, y); */
             }
         }
+        test->call->Render(test, i + 1, 5);
         refresh();
-        usleep(50000);
+        usleep(500000);
     }
     
 

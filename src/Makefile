@@ -1,11 +1,11 @@
 GCC_IGNORE_ERRS=-Wno-override-init -Wno-unused-parameter -Wno-unused-variable
 BUILD_FOLDER=../build/
 SRC_FOLDER=./src/
-OBJECTS=gameengine.c renderengine.c texturemap.c textureassets.c darray.c darraycell.c gameassets.c gameobject.c
+OBJECTS=renderengine.c texturemap.c textureassets.c darray.c darraycell.c gameassets.c gameobject.c
 all: build
 
 build: main.c
-	make clear;gcc -Wall -Wextra -Werror -lncurses main.c -o $(BUILD_FOLDER)main.out;
+	make clear;gcc -Wall -Wextra -Werror $(GCC_IGNORE_ERRS) $(OBJECTS) main.c -o $(BUILD_FOLDER)main.out -lncurses;
 
 clear:
 	rm -rf $(BUILD_FOLDER)*;
