@@ -43,6 +43,9 @@ void TextureMap__Render(PTextureMap instance, int x, int y) {
     /* printf("                   \n");
     printf("                   \n");
     printf("                   \n"); */
+    if (instance == NULL || instance->buffer == NULL) {
+        return;
+    }
     x = x * 3;
     y = y * 3;
     for (int i = 0; i < 3; i++)
@@ -50,7 +53,7 @@ void TextureMap__Render(PTextureMap instance, int x, int y) {
         for (int j = 0; j < 3; j++)
         {
             move(y + j, x + i);
-            printw("%s", (*instance->buffer)[j][i]);
+            /* printw("%s", (*instance->buffer)[j][i]); */
         }
     }
     
@@ -61,7 +64,7 @@ void TextureMap__Render(PTextureMap instance, int x, int y) {
 int main() {
     RenderEngine render = RENDERENGINE();
     render.call->Init(&render);
-    /* PGameAssets tt_o = NEW_GAMEASSETS(); */
+    PGameAssets tt_o = NEW_GAMEASSETS();
    /*  RawTexture tt = {
         {Q_BLOCK1, W_BLOCK1, E_BLOCK1},
         {A_BLOCK1, S_BLOCK1, A_BLOCK1},
@@ -96,8 +99,26 @@ int main() {
                 /* if ((y == 0 || y == TILE_HEIGHT - 1) || (x == 0 || x == TILE_WIDTH - 1)) {
                     test->call->Render(test, x, y);
                 } */
-                /* PTextureMap texture = tt_o->objects[x][y]->texture;
-                texture->call->Render(texture, x, y); */
+                PGameObject object = tt_o->objects[x][y];
+                if (object == NULL) {
+                    continue;
+                }
+                /* printw("%ld\n", object); */
+                PTextureMap texture = object->texture;
+                if (texture == NULL ) {
+                    continue;
+                }
+
+                texture->call->Render(texture, x, y);
+                /* if (object == NULL) {
+                    continue;
+                }
+
+                PTextureMap texture = object->texture;
+                if (texture == NULL) {
+                    continue;
+                } */
+                /* texture->call->Render(texture, x, y); */
             }
         }
         refresh();

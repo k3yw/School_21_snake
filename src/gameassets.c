@@ -31,12 +31,13 @@ PGameAssets GameAssets__new() {
         }
  */
     PGameObject wall = NEW_GAMEOBJECT();
-    ret->bank->call->add(ret->bank, (void *)wall);
+    /* ret->bank->call->add(ret->bank, (void *)wall); */
 
     for (int x = 0; x < TILE_WIDTH; x++)
     {
         for (int y = 0; y < TILE_HEIGHT; y++)
         {
+            ret->objects[x][y] = NULL;
             if ((y == 0 || y == TILE_HEIGHT - 1) || (x == 0 || x == TILE_WIDTH - 1)) {
         
                 ret->objects[x][y] = wall;
