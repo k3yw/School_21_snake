@@ -20,6 +20,8 @@ PDArrayCell DArrayCell__new(PDArrayCell cur_cell, void * data, int page_size, in
        /*  page_size--; */
     }
 
+    ret->next_page = NULL;
+
     ret->call = &__darraycell_vtable___defaults__;
     ret->data = data;
     ret->has_value = has_data;

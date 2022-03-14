@@ -17,6 +17,12 @@ __gameobject_vtable__
 PGameObject GameObject__new() {
     PGameObject ret = (PGameObject)malloc(sizeof(GameObject));
     ret->call = &__gameobject_vtable___defaults__;
+    ret->child_object = NULL;
+    ret->has_collision = 0;
+    ret->on_collide = NULL;
+    ret->texture = NULL;
+    ret->x = 0;
+    ret->y = 0;
     return ret;
 }
 

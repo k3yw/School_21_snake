@@ -26,6 +26,7 @@ __texturemap_vtable__
 PTextureMap TextureMap__new(PRawTexture texture) {
     PTextureMap ret = (PTextureMap)malloc(sizeof(TextureMap));
     ret->call = &__texturemap_vtable___defaults__;
+    ret->test = 0;
     ret->buffer = malloc(sizeof(RawTexture));
     memcpy(ret->buffer, texture, sizeof(RawTexture));
     /* *(char*)(&ret->buffer[0][0]) = texture[0][0][0]; */
@@ -53,7 +54,7 @@ void TextureMap__Render(PTextureMap instance, int x, int y) {
         for (int j = 0; j < 3; j++)
         {
             move(y + j, x + i);
-            /* printw("%s", (*instance->buffer)[j][i]); */
+            printw("%s", (*instance->buffer)[j][i]);
         }
     }
     
@@ -105,11 +106,11 @@ int main() {
                 }
                 /* printw("%ld\n", object); */
                 PTextureMap texture = object->texture;
-                if (texture == NULL ) {
+                if (texture == NULL /* || texture->call == NULL  */) {
                     continue;
                 }
 
-                texture->call->Render(texture, x, y);
+                /* texture->call->Render(texture, x, y); */
                 /* if (object == NULL) {
                     continue;
                 }

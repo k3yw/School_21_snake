@@ -19,6 +19,7 @@ __textureassets_vtable__
 PTextureAssets TextureAssets__new() {
     PTextureAssets ret = (PTextureAssets)malloc(sizeof(TextureAssets));
     ret->call = &__textureassets_vtable___defaults__;
+    ret->bank = NEW_DARRAY();
     return ret;
 }
 

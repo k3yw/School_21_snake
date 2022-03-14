@@ -19,6 +19,10 @@ __darray_vtable__
 PDArray DArray__new() {
     PDArray ret = (PDArray)malloc(sizeof(DArray));
     ret->call = &__darray_vtable___defaults__;
+    ret->next_page = NULL;
+    ret->size = 0;
+    ret->last_element = NULL;
+    
     ret->last_page = ret;
 
     for (int i = 0; i < DARRAY_PAGE_LIMIT; i++)
