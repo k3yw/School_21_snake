@@ -47,7 +47,7 @@ void TextureMap__Render(PTextureMap instance, int x, int y) {
         for (int j = 0; j < 3; j++)
         {
             move(y + j, x + i);
-            printw("%s", instance->buffer[i][j]);
+            printw("%s", (*instance->buffer)[i][j]);
         }
     }
     
