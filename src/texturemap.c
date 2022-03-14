@@ -36,11 +36,10 @@ void TextureMap__Render(PTextureMap instance, int x, int y) {
         for (int j = -1; j < 2; j++, y += j)
         {
             printw("%s", instance->buffer[i + 1][j + 1]);
-        
         }
         printw("\n");
     }
-   
+    refresh();
 }
 
 
@@ -48,16 +47,11 @@ void TextureMap__Render(PTextureMap instance, int x, int y) {
 int main() {
     RenderEngine render = RENDERENGINE();
     render.call->Init(&render);
-
-    PRenderEngine test_en = NEW_RENDERENGINE();
-
     TextureMap test = TEXTUREMAP(
         .test = 4,
         .buffer = {{"x", "_", "x"}, {"_", "x", "_"}, {"x", "_", "x"}}
     );
-
     test.call->Render(&test, 0, 0);
-
 
 
     render.call->Destroy(&render);

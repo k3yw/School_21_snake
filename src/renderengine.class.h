@@ -13,6 +13,7 @@
 #define SRC_RENDERENGINE_CLASS_H_
 
 #include <stdlib.h>
+#include "game_defaults.h"
 #include "./renderengine.h"
 
 /////////////////////////////////////////////////////////////////////
@@ -26,6 +27,8 @@ typedef struct {
     int (*Destroy)(PRenderEngine);
 
     int (*InitTextures)(PRenderEngine);
+    int (*DestroyTextures)(PRenderEngine);
+    int (*AppendTexture)(PRenderEngine, RawTexture);
 
     int (*InitWindow)();
     int (*DestroyWindow)(PRenderEngine);

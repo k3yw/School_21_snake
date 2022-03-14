@@ -14,7 +14,12 @@ __renderengine_vtable__
     __renderengine_vtable___defaults__ = {
     /*.func_test = RenderEngine__func_test,*/
     .Init = RenderEngine__Init,
+    .Destroy = RenderEngine__Destroy,
+
     .InitTextures = RenderEngine__InitTextures,
+    .DestroyTextures = RenderEngine__DestroyTextures,
+    .AppendTexture = RenderEngine__AppendTexture,
+
     .InitWindow = RenderEngine__InitWindow,
     .DestroyWindow = RenderEngine__DestroyWindow
     // !!! Инициализация функций... !!!
@@ -27,12 +32,6 @@ PRenderEngine RenderEngine__new() {
     return ret;
 }
 
-/*
-void RenderEngine__func_test(PRenderEngine instance) {
-    PTextureMap test = RENDERENGINE();
-    test->call.func_test(&test);
-} 
-*/
 
 int RenderEngine__Init(PRenderEngine instance) {
     instance->call->InitWindow();
@@ -42,6 +41,13 @@ int RenderEngine__Init(PRenderEngine instance) {
 
 int RenderEngine__Destroy(PRenderEngine instance) {
     instance->call->DestroyWindow(instance);
+    instance->call->DestroyTextures(instance);
+    return 1;
+}
+
+
+int RenderEngine__AppendTexture(PRenderEngine instance, 
+    RawTexture texture) {
     return 1;
 }
 
@@ -52,6 +58,11 @@ int RenderEngine__InitTextures(PRenderEngine instance) {
     );
 
     instance->Textures[0] = &test; */
+    /* instance->Text */
+    return 1;
+}
+
+int RenderEngine__DestroyTextures(PRenderEngine instance) {
     return 1;
 }
 
@@ -64,7 +75,6 @@ int RenderEngine__InitWindow() {
 }
 
 int RenderEngine__DestroyWindow(PRenderEngine instance) {
-    /* free(instance->Textures[0]); */
     getch();
     endwin();
     return 1;

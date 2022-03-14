@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "render.h": "c",
+        "renderengine.class.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}
